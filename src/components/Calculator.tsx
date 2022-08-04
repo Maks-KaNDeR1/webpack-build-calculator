@@ -25,6 +25,12 @@ export const Calculator = () => {
 
     const workWithEvents = useCallback((e: string) => {
         if (digit.includes(e)) {
+
+            console.log(e);
+            if (e == '0' || e == '00') {
+                if (a === '') return
+                // if (a !== '' && b === '') return
+            }
             if (b === '' && sign === '') {
                 setA(a += e)
                 setActionSum(false)
@@ -41,6 +47,11 @@ export const Calculator = () => {
                     setActionSum(true)
                 }
             }
+
+        }
+        if (a == '0' && a.length < 1) {
+
+            alert('edsgdf')
         }
         if (action.includes(e)) {
             setSign(sign = e)
@@ -87,6 +98,8 @@ export const Calculator = () => {
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
 
         const value = event.target.value
+        if (value === "00") return
+
         let e = value.length === 1 ? value : value.slice(-1)
         workWithEvents(e)
         // if (value < a) {
