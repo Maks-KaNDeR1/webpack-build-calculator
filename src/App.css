@@ -1,0 +1,21 @@
+.App {
+  /* position: relative; */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  background-color: #ff9292;
+  min-height: 100vh;
+  
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+  border: none;
+
+}
+
+button:focus{
+  border: none;
+  outline: none;
+}

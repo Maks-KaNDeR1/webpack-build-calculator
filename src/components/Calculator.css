@@ -1,0 +1,86 @@
+
+.mainBlock {
+    position: relative;
+    margin-top: 10%;
+    min-height: 400px;
+    max-height: 464px;
+    min-width: 280px;
+    background-color: #3469b8;
+    border-radius: 15px;
+    /* border: #f99f9f 20px solid  ; */
+}
+
+.mainBlock::after {
+    content: "";
+    position: absolute;
+    background-color: #f99f9f;
+    z-index: -200;
+    top: -5%;
+    left: -6%;
+    height: 118%;
+    width: 112%;
+    border-radius: 15px;
+}
+
+.display input {
+    width: 240px;
+	border: none;
+    
+	background-color: transparent;
+	position: relative;
+    font-size: 43px;
+    font-weight: 500;
+    color: #fff
+}
+
+.display input:focus{
+    border: none;
+    outline: none;
+}
+
+.classSumValue {
+    position: absolute;
+    left: 8%;
+    top: 5%;
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff
+}
+
+.classSumValue input {
+    width: 203px;
+	border: none;
+    float: inline-start;
+    background-color: transparent;
+	position: relative;
+    font-size: 23px;
+    /* font-weight: 200; */
+    color: #fff;
+    /* direction: rtl; */
+}
+/* style="direction: rtl;" */
+.classSumTwoValue {
+    font-size: 43px;
+    font-weight: 600;
+    float: right;
+    margin: 70px 18px 0;
+    color: #fff;
+}
+
+
+.classValue{
+    /* position: absolute; */
+    font-size: 43px;
+    font-weight: 600;
+    float: right;
+    margin: 70px 18px 0;
+    color: #fff;
+}
+
+/* .classSumTwoValue input {
+    direction: rtl;
+} */
+
+/* .classValue input {
+    direction: rtl;
+} */
