@@ -32,37 +32,7 @@ module.exports = {
                 use: ["file-loader"]
             },
             {
-                test: /\.m?js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["@babel/preset-env"]
-                    }
-                }
-            },
-            {
-                test: /\.m?ts$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["@babel/preset-env", "@babel/preset-typescript"]
-                    }
-                }
-            },
-            {
-                test: /\.m?jsx$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: ["@babel/preset-react", "@babel/preset-env"]
-                    }
-                }
-            },
-            {
-                test: /\.m?tsx$/,
+                test: /\.m?ts|tsx$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader",
