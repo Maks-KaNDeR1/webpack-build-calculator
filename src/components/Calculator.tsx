@@ -5,7 +5,7 @@ import './Calculator.css'
 
 export const Calculator = () => {
 
-    const digit = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '00', ',']
+    const digit = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '00', '.']
     const action = ['/', '*', '-', '+']
 
     let [a, setA] = useState<string>('')
@@ -23,10 +23,8 @@ export const Calculator = () => {
         if (sign === '/') setA((Number(a) / Number(b)).toString())
     }
 
-    const workWithEvents = useCallback((e: string) => {
+    const workWithEvents = (e: string) => {
         if (digit.includes(e)) {
-
-            console.log(e);
             if (e == '0' || e == '00') {
                 if (a === '') return
                 // if (a !== '' && b === '') return
@@ -47,10 +45,8 @@ export const Calculator = () => {
                     setActionSum(true)
                 }
             }
-
         }
         if (a == '0' && a.length < 1) {
-
             alert('edsgdf')
         }
         if (action.includes(e)) {
@@ -61,8 +57,7 @@ export const Calculator = () => {
         }
         if (e === '%') {
             setActionSum(true)
-            let num = Number(a)
-            let perc = num * 0.01
+            const perc = Number(a) * 0.01
             setA((perc).toString())
         }
         if (e === '^') {
@@ -87,37 +82,23 @@ export const Calculator = () => {
                 setB(b.slice(0, -2))
             }
         }
-    }, [a, b])
+    }
 
     const onClickHandler = useCallback((event: MouseEvent<HTMLButtonElement>) => {
         setFocus(true)
-        let e = event.currentTarget.value
+        const e = event.currentTarget.value
         workWithEvents(e)
     }, [workWithEvents])
 
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-
         const value = event.target.value
         if (value === "00") return
 
-        let e = value.length === 1 ? value : value.slice(-1)
+        const e = value.length === 1 ? value : value.slice(-1)
         workWithEvents(e)
-        // if (value < a) {
-        //     // setA(value)
-        //     workWithEvents(value)
-        //     // setB(value)
-        //     console.log(value)
-        // } else if (value.length === 1){
-        //     console.log(value.length)
-        //     workWithEvents(value)
-        // } else {
-        //     console.log(value)
-        //     workWithEvents(value.slice(-1))
-        // }
     }
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-
         if (e.code === 'NumpadEnter' || e.code === 'Enter') {
             if (b !== '') {
                 equality()
@@ -149,8 +130,14 @@ export const Calculator = () => {
                                 <input value={a} readOnly /><span>{sign}</span>
                             </div>
                             <div className='classSumTwoValue'>
-                                <input ref={inputElement} onKeyPress={onKeyPressHandler} autoFocus
-                                    onKeyDown={onKeyDownHandler} onChange={onChangeHandler} value={!b ? '0' : b} />
+                                <input
+                                    autoFocus
+                                    value={!b ? '0' : b}
+                                    ref={inputElement}
+                                    onKeyPress={onKeyPressHandler}
+                                    onKeyDown={onKeyDownHandler}
+                                    onChange={onChangeHandler}
+                                />
                             </div>
                         </div>
                         :
@@ -159,8 +146,14 @@ export const Calculator = () => {
                                 <input value={b} readOnly /><span>{sign}</span>
                             </div>
                             <div className='classValue'  >
-                                <input ref={inputElement} onKeyPress={onKeyPressHandler} autoFocus
-                                    onKeyDown={onKeyDownHandler} onChange={onChangeHandler} value={!a ? '0' : a} />
+                                <input
+                                    autoFocus
+                                    value={!a ? '0' : a}
+                                    ref={inputElement}
+                                    onKeyPress={onKeyPressHandler}
+                                    onKeyDown={onKeyDownHandler}
+                                    onChange={onChangeHandler}
+                                />
                             </div>
                         </div>
                 }
